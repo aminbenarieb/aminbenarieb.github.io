@@ -6,6 +6,34 @@
     <description>Recent content in Tags on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; Copyright 2023, Amin Benarieb</copyright><atom:link href="https://amin.benarieb.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>&amp;copy; Copyright 2023, Amin Benarieb</copyright>
+    <lastBuildDate>Thu, 29 Jun 2023 14:27:48 +0100</lastBuildDate><atom:link href="https://amin.benarieb.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>debug</title>
+      <link>https://amin.benarieb.com/tags/debug/</link>
+      <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
+      
+      <guid>https://amin.benarieb.com/tags/debug/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deeplinks</title>
+      <link>https://amin.benarieb.com/tags/deeplinks/</link>
+      <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
+      
+      <guid>https://amin.benarieb.com/tags/deeplinks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>localserver</title>
+      <link>https://amin.benarieb.com/tags/localserver/</link>
+      <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
+      
+      <guid>https://amin.benarieb.com/tags/localserver/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

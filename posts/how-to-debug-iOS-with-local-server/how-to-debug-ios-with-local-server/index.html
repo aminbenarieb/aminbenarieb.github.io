@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Amin Benarieb&#39;s Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../../css/theme.min.css">
+
+    
+    
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V1TYZCYPN8', { 'anonymize_ip': false });
+}
+</script>
+
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../../assets/avatar.jpeg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../../" class="text-decoration-none">
+                    
+                        Amin Benarieb
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    iOS dev
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/aminbenarieb" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/aminbenarieb/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/amin_benarieb" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>When you need to test interactions within your app that require a custom web page, such as engaging with payment options in a pop-up browser via universal links or deep links, the process might seem daunting at first. However, with the right approach, it becomes manageable and straightforward.</p>
+<p>Like in the screenshot below:</p>
+<p><img src="../../../posts/how-to-debug-iOS-with-local-server/deeplinks_menu.png" alt="Deeplinks menu"></p>
+<p>Recently, I encountered a task that required testing payment interactions on a web page within a pop-up browser. The first step was to capture the link, modify it by removing and adding certain parameters, and then proceed. The second step involved opening the web page and handling a deep link from it, which would close the pop-up browser.</p>
+<p>To ensure everything worked as intended, I needed a webpage that could handle all types of links and that could be opened in iOS Simulator. First idea that came to my mind is using a local server with such page. After a quick search, I found a simple code using Python, which was perfect for my needs. This code allows you to set up a local server and test various links in an HTML format:</p>
+<hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> http.server <span style="color:#f92672">import</span> HTTPServer, BaseHTTPRequestHandler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Serv</span>(BaseHTTPRequestHandler):
+</span></span><span style="display:flex;"><span><span style="color:#f92672">****</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_GET</span>(self):
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>:
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/test.html&#39;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> open(self<span style="color:#f92672">.</span>path[<span style="color:#ae81ff">1</span>:])<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;File not found&#34;</span>
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">404</span>)
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>end_headers()
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>wfile<span style="color:#f92672">.</span>write(bytes(file_to_open, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>httpd <span style="color:#f92672">=</span> HTTPServer((<span style="color:#e6db74">&#39;localhost&#39;</span>,<span style="color:#ae81ff">8081</span>),Serv)
+</span></span><span style="display:flex;"><span>httpd<span style="color:#f92672">.</span>serve_forever()
+</span></span></code></pre></div><p>To use this server, you simply place any links you need in HTML format in a file named <code>test.html</code> and save it. Then, run the server using the command <code>python your-python-saved-name.py</code>.</p>
+<p>The line before the last one in the script allows you to configure the local host and its port, which is set to <code>8081</code> by default. If this port is busy, you can easily switch to another, such as <code>8082</code>.</p>
+<p>This method provides a straightforward way to test web interactions within your app, saving tons of time during compiling or debugging of your app.</p>
+<hr>
+<p>Hey everyone,</p>
+<p>Getting into app debugging with web pages? I’ve just tackled testing a payment webpage that pops up in an app. The goal was to grab the URL, adjust the parameters, and make sure the deep links worked smoothly before closing the browser.</p>
+<p>![[deeplinks_menu.png]]</p>
+<p>To get it right, I set up a simple local server using Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> http.server <span style="color:#f92672">import</span> HTTPServer, BaseHTTPRequestHandler
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Serv</span>(BaseHTTPRequestHandler):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_GET</span>(self):
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>:
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/test.html&#39;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> open(self<span style="color:#f92672">.</span>path[<span style="color:#ae81ff">1</span>:])<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">except</span>:
+</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;File not found&#34;</span>
+</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">404</span>)
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>end_headers()
+</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>wfile<span style="color:#f92672">.</span>write(bytes(file_to_open, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>httpd <span style="color:#f92672">=</span> HTTPServer((<span style="color:#e6db74">&#39;localhost&#39;</span>,<span style="color:#ae81ff">8081</span>),Serv)
+</span></span><span style="display:flex;"><span>httpd<span style="color:#f92672">.</span>serve_forever()
+</span></span></code></pre></div><p>Place your content into test.html, save this script, and run it with python your-file-name.py. Choose localhost and a free port, like 8081, and you’re good to go.</p>
+<p>Now you’re ready to seamlessly test all those links between your app and the web!</p>
+
+    </div>
+
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2023, Amin Benarieb
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

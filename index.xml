@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amin Benarieb&#39;s Blog</title>
+    <link>https://amin.benarieb.com/</link>
+    <description>Recent content on Amin Benarieb&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright 2023, Amin Benarieb</copyright>
+    <lastBuildDate>Thu, 29 Jun 2023 14:27:48 +0100</lastBuildDate><atom:link href="https://amin.benarieb.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to debug iOS with local server</title>
+      <link>https://amin.benarieb.com/posts/how-to-debug-ios-with-local-server/how-to-debug-ios-with-local-server/</link>
+      <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
+      
+      <guid>https://amin.benarieb.com/posts/how-to-debug-ios-with-local-server/how-to-debug-ios-with-local-server/</guid>
+      <description>When you need to test interactions within your app that require a custom web page, such as engaging with payment options in a pop-up browser via universal links or deep links, the process might seem daunting at first. However, with the right approach, it becomes manageable and straightforward.
+Like in the screenshot below:
+Recently, I encountered a task that required testing payment interactions on a web page within a pop-up browser.</description>
+    </item>
+    
+  </channel>
+</rss>

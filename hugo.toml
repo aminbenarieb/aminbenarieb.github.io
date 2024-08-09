@@ -1,0 +1,52 @@
+baseURL = "https://amin.benarieb.com"
+title = "Amin Benarieb's Blog"
+languageCode = "en-us"
+theme = "devise"
+relativeURLs = true
+enableEmoji = true
+googleAnalytics = "G-V1TYZCYPN8"
+disqusShortname = "your-disqus-shortname"
+enableRobotsTXT = true
+copyright = "&copy; Copyright 2023, Amin Benarieb"
+
+# Main menu items
+#[menu]
+  #[[menu.main]]
+    #identifier = "about"
+    #name = "About"
+    #title = "About"
+    #url = "/about/"
+    #weight = -110
+  #[[menu.main]]
+    #identifier = "posts"
+    #name = "Posts"
+    #title = "Posts"
+    #url = "/post/"
+    #weight = -100
+  #[[menu.main]]
+    #identifier = "categories"
+    #name = "Categories"
+    #title = "Categories"
+    #url = "/categories/"
+    #weight = -90
+
+# Configuration Features
+[params]
+  description = "Amin Benarieb's Blog"      # Your meta description of the site
+  header_title = "Amin Benarieb"                 # Your header title
+  header_subtitle = "iOS dev" # Your header subtitle
+  home_image = "/assets/avatar.jpeg"          # Path to header image starting from the static directory
+  recent_posts = 5                           # Max amount of recent posts to show
+  mainSections = ["posts", "post", "blog"]   # Main sections to include in recent posts
+  [params.style]                             # CSS style overrides
+    backgroundColor = "#f8f9fa"
+    fontColor = "#212529"
+  [[params.social]]
+    fa_icon = "fab fa-github fa-1x"          # Font Awesome icon class
+    href = "http://github.com/aminbenarieb"      # Link to associate with icon (http://, https://, mailto:)
+  [[params.social]]
+    fa_icon = "fab fa-linkedin-in fa-1x"
+    href = "https://www.linkedin.com/in/aminbenarieb/"
+  [[params.social]]
+    fa_icon = "fab fa-twitter fa-1x"
+    href = "https://twitter.com/amin_benarieb"

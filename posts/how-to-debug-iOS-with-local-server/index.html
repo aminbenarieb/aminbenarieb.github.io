@@ -8,7 +8,7 @@
     
     
     
-    <link rel="stylesheet" href="../../../css/theme.min.css">
+    <link rel="stylesheet" href="../../css/theme.min.css">
 
     
     
@@ -32,11 +32,11 @@ if (!doNotTrack) {
     <div class="row">
         
         <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
-            <a href="../../../" class="text-decoration-none">
+            <a href="../../" class="text-decoration-none">
                 <img id="home-image" class="rounded-circle"
                     
                         
-                            src="../../../assets/avatar.jpeg"
+                            src="../../assets/avatar.jpeg"
                         
                     
                 />
@@ -45,7 +45,7 @@ if (!doNotTrack) {
         <div class="col-sm-8 col-12 text-sm-left text-center">
         
             <h2 class="m-0 mb-2 mt-4">
-                <a href="../../../" class="text-decoration-none">
+                <a href="../../" class="text-decoration-none">
                     
                         Amin Benarieb
                     
@@ -89,7 +89,7 @@ if (!doNotTrack) {
     <div class="pl-sm-4 ml-sm-5">
         <p>When you need to test interactions within your app that require a custom web page, such as engaging with payment options in a pop-up browser via universal links or deep links, the process might seem daunting at first. However, with the right approach, it becomes manageable and straightforward.</p>
 <p>Like in the screenshot below:</p>
-<p><img src="../../../posts/how-to-debug-iOS-with-local-server/deeplinks_menu.png" alt="Deeplinks menu"></p>
+<p><img src="deeplinks_menu.png" alt="Deeplinks menu"></p>
 <p>Recently, I encountered a task that required testing payment interactions on a web page within a pop-up browser. The first step was to capture the link, modify it by removing and adding certain parameters, and then proceed. The second step involved opening the web page and handling a deep link from it, which would close the pop-up browser.</p>
 <p>To ensure everything worked as intended, I needed a webpage that could handle all types of links and that could be opened in iOS Simulator. First idea that came to my mind is using a local server with such page. After a quick search, I found a simple code using Python, which was perfect for my needs. This code allows you to set up a local server and test various links in an HTML format:</p>
 <hr>

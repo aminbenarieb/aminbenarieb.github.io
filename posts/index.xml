@@ -24,9 +24,7 @@ Solution To speed up debugging without rebuilding your app, you can leverage Pro
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
       
       <guid>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</guid>
-      <description>When you need to test interactions within your app that require a custom web page, such as engaging with payment options in a pop-up browser via universal links or deep links, the process might seem daunting at first. However, with the right approach, it becomes manageable and straightforward.
-Like in the screenshot below:
-Recently, I encountered a task that required testing payment interactions on a web page within a pop-up browser.</description>
+      <description>How to Debug iOS Deep Links with a Local Server Problem Testing interactions within your iOS app that require a custom web page—such as engaging with payment options in a pop-up browser via universal links or deep links—can be challenging. Capturing and modifying URLs, handling deep links that close pop-up browsers, and ensuring that various types of links work seamlessly within your app can be time-consuming without the right tools.</description>
     </item>
     
   </channel>

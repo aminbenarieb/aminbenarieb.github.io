@@ -87,57 +87,94 @@ if (!doNotTrack) {
 </header>
 <div class="container">
     <div class="pl-sm-4 ml-sm-5">
-        <p>When you need to test interactions within your app that require a custom web page, such as engaging with payment options in a pop-up browser via universal links or deep links, the process might seem daunting at first. However, with the right approach, it becomes manageable and straightforward.</p>
-<p>Like in the screenshot below:</p>
+        <h1 id="how-to-debug-ios-deep-links-with-a-local-server">How to Debug iOS Deep Links with a Local Server</h1>
+<h2 id="problem">Problem</h2>
+<p>Testing interactions within your iOS app that require a custom web page—such as engaging with payment options in a pop-up browser via universal links or deep links—can be challenging. Capturing and modifying URLs, handling deep links that close pop-up browsers, and ensuring that various types of links work seamlessly within your app can be time-consuming without the right tools.</p>
+<h2 id="solution">Solution</h2>
+<p>To streamline the testing process, you can set up a local server that hosts a custom HTML page containing all the links you need to test. This approach allows you to open the web page in the iOS Simulator and interact with your app&rsquo;s deep links in a controlled environment.</p>
 <p><img src="deeplinks_menu.png" alt="Deeplinks menu"></p>
-<p>Recently, I encountered a task that required testing payment interactions on a web page within a pop-up browser. The first step was to capture the link, modify it by removing and adding certain parameters, and then proceed. The second step involved opening the web page and handling a deep link from it, which would close the pop-up browser.</p>
-<p>To ensure everything worked as intended, I needed a webpage that could handle all types of links and that could be opened in iOS Simulator. First idea that came to my mind is using a local server with such page. After a quick search, I found a simple code using Python, which was perfect for my needs. This code allows you to set up a local server and test various links in an HTML format:</p>
-<hr>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://branch/Settings/FavoritePlaces&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;FavoritePlaces&lt;/<span style="color:#f92672">a</span>&gt;<span style="color:#960050;background-color:#1e0010">&lt;</span>
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/RestorePurchase&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Restore purchases&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34; welltory://branch/Payment/Point/330&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Branch payment (330)&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/OpenLink?url=https%3A%2F%2Fstage-app.welltory.com%2Fpayments%2Fplans%2Fpromo-special%2F%3Fcoupon%3DPRM_may2FREE%26require_token%3Dtrue&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;STAGE COUPON  &lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/payment_form/plans/promo-special?coupon=PRM_may2FREE&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;ACTION payment_Form (plans/promo-special) &lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/OpenLink?url=https%3A%2F%2Fapp.welltory.com%2Fpayment-method%2F%3Frequire_token%3Dtrue&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;payment-method (OLD) &lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/inappstory/stories/zijty70&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;ACTION inappstory (zijty70) &lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;welltory://action/web_payment?status=success&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;ACTION web_Payment (status=success) &lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
-</span></span></code></pre></div><p>To use this server, you simply place any links you need in HTML format in a file named <code>test.html</code> and save it. Then, run the server using the command <code>python your-python-saved-name.py</code>.</p>
-<p>The line before the last one in the script allows you to configure the local host and its port, which is set to <code>8081</code> by default. If this port is busy, you can easily switch to another, such as <code>8082</code>.</p>
-<p>This method provides a straightforward way to test web interactions within your app, saving tons of time during compiling or debugging of your app.</p>
-<hr>
-<p>Hey everyone,</p>
-<p>Getting into app debugging with web pages? I’ve just tackled testing a payment webpage that pops up in an app. The goal was to grab the URL, adjust the parameters, and make sure the deep links worked smoothly before closing the browser.</p>
-<p>![[deeplinks_menu.png]]</p>
-<p>To get it right, I set up a simple local server using Python:</p>
+<h3 id="setting-up-a-local-server-with-python">Setting Up a Local Server with Python</h3>
+<p>Python provides a simple way to set up a local HTTP server. Here&rsquo;s a Python script that serves an HTML file containing your test links:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> http.server <span style="color:#f92672">import</span> HTTPServer, BaseHTTPRequestHandler
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Serv</span>(BaseHTTPRequestHandler):
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">do_GET</span>(self):
-</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>:
-</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/test.html&#39;</span>
-</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">try</span>:
-</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> open(self<span style="color:#f92672">.</span>path[<span style="color:#ae81ff">1</span>:])<span style="color:#f92672">.</span>read()
-</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
-</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">except</span>:
-</span></span><span style="display:flex;"><span>           file_to_open <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;File not found&#34;</span>
-</span></span><span style="display:flex;"><span>           self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">404</span>)
-</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>end_headers()
-</span></span><span style="display:flex;"><span>       self<span style="color:#f92672">.</span>wfile<span style="color:#f92672">.</span>write(bytes(file_to_open, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;/&#39;</span>:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/test.html&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            file_to_open <span style="color:#f92672">=</span> open(self<span style="color:#f92672">.</span>path[<span style="color:#ae81ff">1</span>:])<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">FileNotFoundError</span>:
+</span></span><span style="display:flex;"><span>            file_to_open <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;File not found&#34;</span>
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>send_response(<span style="color:#ae81ff">404</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>end_headers()
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>wfile<span style="color:#f92672">.</span>write(bytes(file_to_open, <span style="color:#e6db74">&#39;utf-8&#39;</span>))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>httpd <span style="color:#f92672">=</span> HTTPServer((<span style="color:#e6db74">&#39;localhost&#39;</span>,<span style="color:#ae81ff">8081</span>),Serv)
+</span></span><span style="display:flex;"><span>httpd <span style="color:#f92672">=</span> HTTPServer((<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">8081</span>), Serv)
 </span></span><span style="display:flex;"><span>httpd<span style="color:#f92672">.</span>serve_forever()
-</span></span></code></pre></div><p>Place your content into test.html, save this script, and run it with python your-file-name.py. Choose localhost and a free port, like 8081, and you’re good to go.</p>
-<p>Now you’re ready to seamlessly test all those links between your app and the web!</p>
+</span></span></code></pre></div><p><strong>Steps to Set Up:</strong></p>
+<ol>
+<li>
+<p><strong>Create Your HTML File:</strong></p>
+<p>Save your test links in an HTML file named <code>test.html</code>. Here&rsquo;s an example of what <code>test.html</code> might look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://branch/Settings/FavoritePlaces&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Favorite Places&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://action/RestorePurchase&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Restore Purchases&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://branch/Payment/Point/330&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Branch Payment (330)&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://action/OpenLink?url=https%3A%2F%2Fstage-app.yourapp.com%2Fpayments%2Fplans%2Fpromo-special%2F%3Fcoupon%3DPRM_may2FREE%26require_token%3Dtrue&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Stage Coupon&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://action/payment_form/plans/promo-special?coupon=PRM_may2FREE&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Payment Form with Coupon&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;yourapp://action/web_payment?status=success&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>&gt;Web Payment Success&lt;/<span style="color:#f92672">a</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">&lt;!-- Add more links as needed --&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>Replace <code>yourapp</code> with your app&rsquo;s URL scheme.</p>
+</li>
+<li>
+<p><strong>Save the Python Script:</strong></p>
+<p>Save the Python script above in a file named <code>local_server.py</code>.</p>
+</li>
+<li>
+<p><strong>Run the Local Server:</strong></p>
+<p>Open a terminal, navigate to the directory containing <code>local_server.py</code>, and run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python local_server.py
+</span></span></code></pre></div><p>This starts a local server on <code>localhost</code> at port <code>8081</code>. If port <code>8081</code> is busy, you can change the port number in the script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>httpd <span style="color:#f92672">=</span> HTTPServer((<span style="color:#e6db74">&#39;localhost&#39;</span>, <span style="color:#ae81ff">8082</span>), Serv)
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Access the Test Page:</strong></p>
+<p>In the iOS Simulator, open Safari and navigate to <code>http://localhost:8081</code>. You should see your <code>test.html</code> page with all your test links.</p>
+</li>
+</ol>
+<h3 id="testing-deep-links">Testing Deep Links</h3>
+<p>With your local server running and accessible from the iOS Simulator, you can now test how your app handles various deep links:</p>
+<ul>
+<li><strong>Click on the Links:</strong> Interact with the links in <code>test.html</code> to see how your app responds.</li>
+<li><strong>Verify Navigation:</strong> Ensure that your app opens and navigates to the correct screens.</li>
+<li><strong>Test URL Parameters:</strong> Modify URL parameters in <code>test.html</code> to test different scenarios.</li>
+<li><strong>Handle Pop-Up Browsers:</strong> If your app uses a pop-up browser (e.g., <code>SFSafariViewController</code>), test how deep links from your web page close the browser and return control to the app.</li>
+</ul>
+<h2 id="further-thoughts">Further Thoughts</h2>
+<p>Setting up a local server for testing deep links offers several advantages:</p>
+<ul>
+<li><strong>Efficiency:</strong> Quickly test web interactions without deploying changes to a live server or rebuilding your app.</li>
+<li><strong>Flexibility:</strong> Easily add, remove, or modify test links in the <code>test.html</code> file.</li>
+<li><strong>Isolation:</strong> Work in a controlled environment without affecting real users or requiring internet access.</li>
+</ul>
+<h2 id="connect-with-me">Connect with Me</h2>
+<p>Have a comment or question? Feel free to reach out to me on <a href="https://twitter.com/yourusername">Twitter</a> or <a href="https://linkedin.com/in/yourusername">LinkedIn</a>.</p>
 
     </div>
 

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Amin Benarieb&#39;s Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V1TYZCYPN8', { 'anonymize_ip': false });
+}
+</script>
+
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../assets/avatar.jpeg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Amin Benarieb
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    iOS dev
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/aminbenarieb" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/aminbenarieb/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/amin_benarieb" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="how-to-debug-faster-without-rebuilding-your-ios-app">How to Debug Faster Without Rebuilding Your iOS App</h1>
+<h2 id="problem">Problem</h2>
+<p>Building an iOS app can be time-consuming, especially for large projects with complex dependencies. Waiting for the app to rebuild every time you make a minor change or need to test with different data can significantly slow down your development process.</p>
+<h2 id="solution">Solution</h2>
+<p>To speed up debugging without rebuilding your app, you can leverage <code>ProcessInfo.processInfo.environment</code> and <code>ProcessInfo.processInfo.arguments</code>. These allow you to inject data and control app behavior at runtime, making it easier to test different scenarios quickly.</p>
+<h3 id="using-environment-variables">Using Environment Variables</h3>
+<p>Environment variables can be used to pass data into your app during runtime. For example, you can autofill the sign-in screen with test credentials when debugging:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onAppear</span>() {
+</span></span><span style="display:flex;"><span>    email.text = ProcessInfo.processInfo.environment[<span style="color:#e6db74">&#34;SIGNIN_EMAIL&#34;</span>]
+</span></span><span style="display:flex;"><span>    password.text = ProcessInfo.processInfo.environment[<span style="color:#e6db74">&#34;SIGNIN_PASSWORD&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To set environment variables in Xcode:</p>
+<ol>
+<li><strong>Edit Scheme</strong>: Go to your project in Xcode, select your target, and choose <strong>Edit Scheme</strong>.</li>
+<li><strong>Select Run</strong>: In the scheme editor, select the <strong>Run</strong> action from the sidebar.</li>
+<li><strong>Navigate to Arguments</strong>: Click on the <strong>Arguments</strong> tab.</li>
+<li><strong>Add Environment Variables</strong>: Under <strong>Environment Variables</strong>, click the plus button to add new variables.</li>
+</ol>
+<p><img src="Pasted%20image%2020241030144039.png" alt="environment-variables-screenshot"></p>
+<h3 id="creating-a-debug-configuration-interface">Creating a Debug Configuration Interface</h3>
+<p>To manage environment variables more efficiently, you can create a utility that abstracts the access:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">#if</span> <span style="color:#75715e">DEBUG</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> environment: [String: String] = ProcessInfo.processInfo.environment
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#else</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> environment: [String: String] = [:]
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">DebugConfiguration</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">string</span>(<span style="color:#66d9ef">_</span> key: String) -&gt; String? {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> environment[key]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now, your code becomes cleaner:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onAppear</span>() {
+</span></span><span style="display:flex;"><span>    email.text = DebugConfiguration.string(<span style="color:#e6db74">&#34;SIGNIN_EMAIL&#34;</span>)
+</span></span><span style="display:flex;"><span>    password.text = DebugConfiguration.string(<span style="color:#e6db74">&#34;SIGNIN_PASSWORD&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="using-launch-arguments">Using Launch Arguments</h3>
+<p>Launch arguments can be used to toggle features or behaviors without changing code. For instance, you might want to autofill the sign-up screen or automatically run onboarding steps during debugging.</p>
+<p>To add launch arguments:</p>
+<ol>
+<li><strong>Edit Scheme</strong>: Select <strong>Edit Scheme</strong> for your target.</li>
+<li><strong>Select Run</strong>: Choose the <strong>Run</strong> action.</li>
+<li><strong>Navigate to Arguments</strong>: Go to the <strong>Arguments</strong> tab.</li>
+<li><strong>Add Arguments</strong>: Under <strong>Arguments Passed On Launch</strong>, click the plus button</li>
+</ol>
+<p><img src="Screenshot%202024-10-30%20at%202.52.54%E2%80%AFPM.png" alt="environment-arguments-screenshot"></p>
+<h3 id="handling-debug-flags">Handling Debug Flags</h3>
+<p>Create an interface to check for these debug flags:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">#if</span> <span style="color:#75715e">DEBUG</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> arguments: [String] = ProcessInfo.processInfo.arguments
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#else</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> arguments: [String] = []
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#endif</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">DebugFlag</span>: String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> signupAutofill = <span style="color:#e6db74">&#34;SIGNUP_AUTOFILL&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> onboardingAutorun = <span style="color:#e6db74">&#34;ONBOARDING_AUTORUN&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">isEnabled</span>(<span style="color:#66d9ef">_</span> flag: DebugFlag) -&gt; Bool {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> arguments.contains(flag.rawValue)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="applying-debug-flags-in-your-code">Applying Debug Flags in Your Code</h3>
+<p>Use these flags to conditionally execute code during debugging.</p>
+<p><strong>Autofill Sign-Up Screen:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onAppear</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> DebugFlag.isEnabled(.signupAutofill) {
+</span></span><span style="display:flex;"><span>        email.text = <span style="color:#e6db74">&#34;newuser@example.com&#34;</span>
+</span></span><span style="display:flex;"><span>        password.text = <span style="color:#e6db74">&#34;SecurePassword!&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Auto-Run Onboarding Steps:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onAppear</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> DebugFlag.isEnabled(.onboardingAutorun) {
+</span></span><span style="display:flex;"><span>        onContinueButtonTap()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onContinueButtonTap</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Proceed to the next onboarding step</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="mocking-userdefaults-values">Mocking <code>UserDefaults</code> Values</h3>
+<p>You can mock <code>UserDefaults</code> to test specific scenarios, such as triggering a feature after a certain number of app launches.</p>
+<p><strong>Set Up Mock Value via Launch Arguments:</strong></p>
+<p>Add the following to <strong>Arguments Passed On Launch</strong>:</p>
+<ul>
+<li><code>-appLaunchCount</code></li>
+<li><code>10</code></li>
+</ul>
+<p><img src="Screenshot%202024-10-30%20at%202.53.04%E2%80%AFPM.png" alt="environment-userdefaults-screenshot"></p>
+<p><strong>Modify Your Code to Use the Mock Value:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">os</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> logger = Logger(subsystem: <span style="color:#e6db74">&#34;com.example.app&#34;</span>, category: <span style="color:#e6db74">&#34;AppLaunch&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">onAppear</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> appLaunchCount = UserDefaults.standard.integer(forKey: <span style="color:#e6db74">&#34;appLaunchCount&#34;</span>)    
+</span></span><span style="display:flex;"><span>    logger.debug(<span style="color:#e6db74">&#34;appLaunchCount = </span><span style="color:#e6db74">\(</span>appLaunchCount<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> appLaunchCount <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>        logger.debug(<span style="color:#e6db74">&#34;Showing special feature on 10th launch&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Trigger the feature</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Sample Output:</strong></p>
+<pre tabindex="0"><code>[AppLaunch] appLaunchCount = 10
+[AppLaunch] Showing special feature on 10th launch
+</code></pre><h2 id="further-thoughts">Further Thoughts</h2>
+<p>By utilizing environment variables and launch arguments, you can:</p>
+<ul>
+<li><strong>Save Time</strong>: Test different data inputs and scenarios without rebuilding or hardcoding values. Expecially to test layout changes, mock API responses, or inject localization strings</li>
+<li><strong>Enhance Flexibility</strong>: Toggle features or behaviors dynamically during runtime.</li>
+<li><strong>Improve Collaboration</strong>: Share custom schemes with your team to ensure consistent testing environments.</li>
+<li><strong>Expand Testing Capabilities</strong>: Simulate edge cases, such as network delays or error states, more efficiently.</li>
+</ul>
+<p>By integrating these practices into your development workflow, you can streamline testing and focus more on building great features.</p>
+<h2 id="connect-with-me">Connect with Me</h2>
+<p>Have a comment or question? Feel free to reach out to me on <a href="https://twitter.com/amin_benarieb">Twitter</a> or <a href="https://linkedin.com/in/aminbenarieb">LinkedIn</a>.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2024, Amin Benarieb
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

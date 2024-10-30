@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
-    <lastBuildDate>Thu, 29 Jun 2023 14:27:48 +0100</lastBuildDate><atom:link href="https://amin.benarieb.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 30 Oct 2024 16:19:20 +0500</lastBuildDate><atom:link href="https://amin.benarieb.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Debug Faster With Processinfo</title>
+      <link>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</link>
+      <pubDate>Wed, 30 Oct 2024 16:19:20 +0500</pubDate>
+      
+      <guid>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</guid>
+      <description>How to Debug Faster Without Rebuilding Your iOS App Problem Building an iOS app can be time-consuming, especially for large projects with complex dependencies. Waiting for the app to rebuild every time you make a minor change or need to test with different data can significantly slow down your development process.
+Solution To speed up debugging without rebuilding your app, you can leverage ProcessInfo.processInfo.environment and ProcessInfo.processInfo.arguments. These allow you to inject data and control app behavior at runtime, making it easier to test different scenarios quickly.</description>
+    </item>
+    
     <item>
       <title>How to debug iOS deeplinks with local server</title>
       <link>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</link>

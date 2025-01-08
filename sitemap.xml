@@ -3,12 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amin.benarieb.com/</loc>
-    <lastmod>2024-10-30T16:19:20+05:00</lastmod>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
   </url><url>
-    <loc>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</loc>
-    <lastmod>2024-10-30T16:19:20+05:00</lastmod>
+    <loc>https://amin.benarieb.com/posts/floating-precision/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
+  </url><url>
+    <loc>https://amin.benarieb.com/tags/decimal/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
+  </url><url>
+    <loc>https://amin.benarieb.com/tags/floating-point/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
   </url><url>
     <loc>https://amin.benarieb.com/posts/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
+  </url><url>
+    <loc>https://amin.benarieb.com/tags/swift/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
+  </url><url>
+    <loc>https://amin.benarieb.com/tags/</loc>
+    <lastmod>2025-01-05T18:57:18+05:00</lastmod>
+  </url><url>
+    <loc>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</loc>
     <lastmod>2024-10-30T16:19:20+05:00</lastmod>
   </url><url>
     <loc>https://amin.benarieb.com/categories/</loc>
@@ -27,9 +42,6 @@
     <lastmod>2023-06-29T14:27:48+01:00</lastmod>
   </url><url>
     <loc>https://amin.benarieb.com/tags/localserver/</loc>
-    <lastmod>2023-06-29T14:27:48+01:00</lastmod>
-  </url><url>
-    <loc>https://amin.benarieb.com/tags/</loc>
     <lastmod>2023-06-29T14:27:48+01:00</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-us"><head>
+    <title>Amin Benarieb&#39;s Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V1TYZCYPN8', { 'anonymize_ip': false });
+}
+</script>
+
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../assets/avatar.jpeg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Amin Benarieb
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    iOS dev
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/aminbenarieb" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/aminbenarieb/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/amin_benarieb" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <p>During my junior years at university, we had a course dedicated to data structures and algorithms. One of the first tasks was working with large numbers, particularly floating-point numbers. At the time, I completed the task successfully. However, I eventually forgot the key lesson about the pitfalls of floating-point numbers and their rounding errors.</p>
+<p>Take a look at the following Swift code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> a = <span style="color:#ae81ff">12.31</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> b = <span style="color:#ae81ff">8.2</span>
+</span></span><span style="display:flex;"><span>print(a <span style="color:#f92672">+</span> b)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Output: 20.509999999999998</span>
+</span></span></code></pre></div><p>Surprisingly, instead of 20.51, you’re more likely to get <code>20.509999999999998</code>.
+And if you print values of <code>a</code> and <code>b</code> you also get something strange:</p>
+<pre tabindex="0"><code>a: Double = 12.31
+b: Double = 8.1999999999999993
+</code></pre><p>Another example: if you sum 0.1 ten times (which should be equivalent to 0.1 * 10 = 1), you might get it wrong again:</p>
+<pre tabindex="0"><code>var sum = 0.0
+for i in 0..&lt;10 {
+  sum += 0.1
+}
+// Result: Double = 0.99999999999999988
+</code></pre><p>You can play around with this behavior <a href="https://swiftfiddle.com/mtt4kbx36bg57emyqzmzz4dt5q">here on SwiftFiddle</a>.</p>
+<h4 id="why-does-this-happen">Why Does This Happen?</h4>
+<p>The reason for this behavior lies in how floating-point numbers are stored in memory. This is a common issue across many programming languages, not just Swift. Here’s a great <a href="https://www.youtube.com/watch?v=8RvnnUuoHTA&amp;ab_channel=EngineerMan">video explanation</a> along with an interactive <a href="https://evanw.github.io/float-toy/">playground</a> that visually demonstrates how floating-point precision works.</p>
+<h4 id="when-does-precision-matter">When Does Precision Matter?</h4>
+<p>Floating-point precision errors might seem trivial, but they can have serious impacts depending on the field — especially in scientific, engineering, or financial applications.</p>
+<p>In iOS development, the most common cases involve billing, purchases, and paywalls. On the backend, even a rounding error of $0.01 per transaction can scale into significant financial discrepancies across thousands of users. On the mobile side, these errors can lead to misleading prices, poor user experience, and ultimately **bad reviews or increased churn rates.  **</p>
+<p>But generally, we don&rsquo;t care much about it: for UI animations, graphics, or games, floating-point errors are often negligible since small rounding errors won’t visibly affect the user experience.</p>
+<h4 id="how-to-solve-it">How to Solve It</h4>
+<p>One solution is to store values as integers (e.g., by multiplying by 100 to avoid decimals). However, the solution I prefer is using <a href="https://developer.apple.com/documentation/foundation/nsnumber/1407409-decimalvalue">Decimal</a> from Foundation.</p>
+<p><code>Decimal</code> is designed to handle precise decimal arithmetic, making it ideal for financial and high-accuracy calculations. Unlike <code>Double</code>, which uses binary floating-point representation, <code>Decimal</code> relies on a <strong>base-10 system</strong>. This eliminates many common rounding errors that occur when working with currency or other exact values.</p>
+<p>That said, <code>Decimal</code> does come with trade-offs:</p>
+<ul>
+<li>slower performance compared to <code>Double</code> for large-scale computations.</li>
+<li>higher memory usage.</li>
+<li>more verbose API, requiring additional steps for arithmetic operations.</li>
+</ul>
+<p>Despite these drawbacks, <code>Decimal</code> remains the preferred choice for ensuring precision in critical areas like billing, purchases, and financial reporting.</p>
+<p>For a deeper dive into the differences between Decimal and Double, I recommend this great <a href="https://www.jessesquires.com/blog/2022/02/01/decimal-vs-double/">article by Jesse Squires</a>.</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2024, Amin Benarieb
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

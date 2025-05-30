@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Amin Benarieb&#39;s Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="../../css/theme.min.css">
+
+    
+    
+    
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-V1TYZCYPN8');
+        }
+      </script>
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="../../" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        
+                            src="../../assets/avatar.jpeg"
+                        
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+        
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="../../" class="text-decoration-none">
+                    
+                        Amin Benarieb
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    iOS dev
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/aminbenarieb" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://www.linkedin.com/in/aminbenarieb/" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="https://twitter.com/amin_benarieb" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>[<span style="color:#ae81ff">tool.poetry]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">name = &#34;camera_playground&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">version = &#34;0.1.0&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">description = &#34;Camera playground: experimenting with OpenCV and numerical calculations in Python.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">authors = [&#34;Amin Benarieb &lt;amin.benarieb@gmail.com&gt;&#34;]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">tool.poetry.dependencies]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">python = &#34;^3.10&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">opencv-python = &#34;^4.5.5&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">numpy = &#34;^1.24.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">build-system]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">requires = [&#34;poetry-core&gt;=1.0.0&#34;]</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">build-backend = &#34;poetry.core.masonry.api&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> cv2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://192.168.14.157/video.mjpg&#34;</span>
+</span></span><span style="display:flex;"><span>cp <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoCapture(url)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>    camera, frame <span style="color:#f92672">=</span> cp<span style="color:#f92672">.</span>read()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> frame <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>:
+</span></span><span style="display:flex;"><span>        cv2<span style="color:#f92672">.</span>imshow(<span style="color:#e6db74">&#34;Frame&#34;</span>, frame)
+</span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>waitKey(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> q<span style="color:#f92672">==</span>ord(<span style="color:#e6db74">&#34;q&#34;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>cv2<span style="color:#f92672">.</span>destroyAllWindows()
+</span></span></code></pre></div>
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright 2024, Amin Benarieb
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

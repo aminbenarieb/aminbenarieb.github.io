@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-us"><head>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <title>Amin Benarieb&#39;s Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,17 +15,20 @@
     
 
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-V1TYZCYPN8', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1TYZCYPN8"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-V1TYZCYPN8');
+        }
+      </script>
 </head>
 <body>
         <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
@@ -108,7 +111,7 @@ for i in 0..&lt;10 {
 <p>The reason for this behavior lies in how floating-point numbers are stored in memory. This is a common issue across many programming languages, not just Swift. Here’s a great <a href="https://www.youtube.com/watch?v=8RvnnUuoHTA&amp;ab_channel=EngineerMan">video explanation</a> along with an interactive <a href="https://evanw.github.io/float-toy/">playground</a> that visually demonstrates how floating-point precision works.</p>
 <h4 id="when-does-precision-matter">When Does Precision Matter?</h4>
 <p>Floating-point precision errors might seem trivial, but they can have serious impacts depending on the field — especially in scientific, engineering, or financial applications.</p>
-<p>In iOS development, the most common cases involve billing, purchases, and paywalls. On the backend, even a rounding error of $0.01 per transaction can scale into significant financial discrepancies across thousands of users. On the mobile side, these errors can lead to misleading prices, poor user experience, and ultimately **bad reviews or increased churn rates.  **</p>
+<p>In iOS development, the most common cases involve billing, purchases, and paywalls. On the backend, even a rounding error of $0.01 per transaction can scale into significant financial discrepancies across thousands of users. On the mobile side, these errors can lead to misleading prices, poor user experience, and ultimately bad reviews or increased <strong>churn rates</strong>.</p>
 <p>But generally, we don&rsquo;t care much about it: for UI animations, graphics, or games, floating-point errors are often negligible since small rounding errors won’t visibly affect the user experience.</p>
 <h4 id="how-to-solve-it">How to Solve It</h4>
 <p>One solution is to store values as integers (e.g., by multiplying by 100 to avoid decimals). However, the solution I prefer is using <a href="https://developer.apple.com/documentation/foundation/nsnumber/1407409-decimalvalue">Decimal</a> from Foundation.</p>
@@ -119,7 +122,6 @@ for i in 0..&lt;10 {
 <li>higher memory usage.</li>
 <li>more verbose API, requiring additional steps for arithmetic operations.</li>
 </ul>
-<p>Despite these drawbacks, <code>Decimal</code> remains the preferred choice for ensuring precision in critical areas like billing, purchases, and financial reporting.</p>
 <p>For a deeper dive into the differences between Decimal and Double, I recommend this great <a href="https://www.jessesquires.com/blog/2022/02/01/decimal-vs-double/">article by Jesse Squires</a>.</p>
 
     </div>

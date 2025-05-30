@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Technotes on Amin Benarieb&#39;s Blog</title>
+    <link>http://localhost:1313/technotes/</link>
+    <description>Recent content in Technotes on Amin Benarieb&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
+    <lastBuildDate>Mon, 06 Jan 2025 13:34:19 +0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/technotes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Memory</title>
+      <link>http://localhost:1313/technotes/memory/</link>
+      <pubDate>Mon, 06 Jan 2025 13:34:19 +0500</pubDate>
+      <guid>http://localhost:1313/technotes/memory/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>String Encoding</title>
+      <link>http://localhost:1313/technotes/string-encoding/</link>
+      <pubDate>Mon, 06 Jan 2025 13:33:49 +0500</pubDate>
+      <guid>http://localhost:1313/technotes/string-encoding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swift Conditions</title>
+      <link>http://localhost:1313/technotes/swift-conditions/</link>
+      <pubDate>Fri, 09 Aug 2024 20:12:00 +0500</pubDate>
+      <guid>http://localhost:1313/technotes/swift-conditions/</guid>
+      <description>&lt;p&gt;let conditionArray = [toggle.showNavBarSleepFlowButton, purchaseConfiguration?.sleepFlowNFHeaderEnabled == true, userProfileService.sleepFlowEnabled]&lt;/p&gt;&#xA;&lt;p&gt;let shouldBeShown = conditionArray.allSatisfy { $0 }&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

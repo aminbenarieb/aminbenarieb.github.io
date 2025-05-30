@@ -2,65 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Amin Benarieb&#39;s Blog</title>
-    <link>https://amin.benarieb.com/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Amin Benarieb&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 18:57:18 +0500</lastBuildDate><atom:link href="https://amin.benarieb.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Jan 2025 18:57:18 +0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>decimal</title>
-      <link>https://amin.benarieb.com/tags/decimal/</link>
+      <title>Decimal</title>
+      <link>http://localhost:1313/tags/decimal/</link>
       <pubDate>Sun, 05 Jan 2025 18:57:18 +0500</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/decimal/</guid>
+      <guid>http://localhost:1313/tags/decimal/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>floating-point</title>
-      <link>https://amin.benarieb.com/tags/floating-point/</link>
+      <title>Floating-Point</title>
+      <link>http://localhost:1313/tags/floating-point/</link>
       <pubDate>Sun, 05 Jan 2025 18:57:18 +0500</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/floating-point/</guid>
+      <guid>http://localhost:1313/tags/floating-point/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>swift</title>
-      <link>https://amin.benarieb.com/tags/swift/</link>
+      <title>Swift</title>
+      <link>http://localhost:1313/tags/swift/</link>
       <pubDate>Sun, 05 Jan 2025 18:57:18 +0500</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/swift/</guid>
+      <guid>http://localhost:1313/tags/swift/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>debug</title>
-      <link>https://amin.benarieb.com/tags/debug/</link>
+      <title>Debug</title>
+      <link>http://localhost:1313/tags/debug/</link>
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/debug/</guid>
+      <guid>http://localhost:1313/tags/debug/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>deeplinks</title>
-      <link>https://amin.benarieb.com/tags/deeplinks/</link>
+      <title>Deeplinks</title>
+      <link>http://localhost:1313/tags/deeplinks/</link>
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/deeplinks/</guid>
+      <guid>http://localhost:1313/tags/deeplinks/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>localserver</title>
-      <link>https://amin.benarieb.com/tags/localserver/</link>
+      <title>Localserver</title>
+      <link>http://localhost:1313/tags/localserver/</link>
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
-      
-      <guid>https://amin.benarieb.com/tags/localserver/</guid>
+      <guid>http://localhost:1313/tags/localserver/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

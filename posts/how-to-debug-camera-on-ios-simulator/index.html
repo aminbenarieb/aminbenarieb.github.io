@@ -89,24 +89,65 @@
     <hr />
 </header>
 <div class="container">
-<div class="pl-sm-4 ml-sm-5">
-    <h4> Category - debug </h4>
+    <div class="pl-sm-4 ml-sm-5">
+        <p>How to debug and test video algorithms on iOS simulator without iOS device?</p>
+<p>The main idea here is to abstract your service for streaming video from a camera in protocol and use an implementation steaming a video from resources via AVFoundation.</p>
+<p>Let&rsquo;s imagine that we have a protocols like this:</p>
+<pre tabindex="0"><code>
+protocol CameraService: {
+
+	weak var delegate: CameraServiceDelegate { get }
+
+}
+
+protocol CameraServiceDelegate: AnyObject {
+
+    func didVideoOutput(sampleBuffer: CMSampleBuffer)
+    
+}
+</code></pre><p>In real camera service, you would implement <code>AVCaptureVideoDataOutputSampleBufferDelegate</code>:</p>
+<pre tabindex="0"><code>extension CameraServiceReal: AVCaptureVideoDataOutputSampleBufferDelegate {
+
+    **public** **func** captureOutput(
+        _: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from _: AVCaptureConnection
+    ) {
+	    self.delegate.didVideoOutput(sampleBuffer: sampleBuffer)
+   }
+</code></pre><p>But for our purpose we  could create an <code>CameraServiceFake</code>, using</p>
+<pre tabindex="0"><code>extension CameraFeedManagerFakeImpl: AVCaptureVideoDataOutputSampleBufferDelegate {
+
+	func start(videoURL: URL) throws {
+		let avAsset = AVAsset(url: videoURL)
+		try self.setupAssetReader(avAsset: avAsset)
+		self.readAssetReader()
+	}
+
+
+	private func setupAssetReader(avAsset: AVAsset) throws {
+		...
+	}
+	
+	private func readAssetReader(avAsset: AVAsset)  {
+		...
+	}
+
+	private func readFrames() {
+		while true {
+			let output = self.assetReader?.outputs.first
+			sample = output.copyNextSampleBuffer()
+			guard let sample else { 
+				return
+			}
+		}
+	}
+	
+}
+</code></pre>
+    </div>
+
     
-    <ul class="list-unstyled">
-        
-        <li>
-            
-                <time datetime="2023-06-29T14:27:48&#43;01:00">
-                Jun 29 2023
-                </time>
-            
-            <a href="../../posts/how-to-debug-ios-deeplinks-with-local-server/">
-                How to debug iOS deeplinks with local server
-            </a>
-        </li>
-        
-    </ul>
-</div>
 
             </div>
         </div><footer class="text-center pb-1">

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Decimal on Amin Benarieb&#39;s Blog</title>
-    <link>http://localhost:1313/tags/decimal/</link>
+    <link>https://amin.benarieb.com/tags/decimal/</link>
     <description>Recent content in Decimal on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
     <lastBuildDate>Sun, 05 Jan 2025 18:57:18 +0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/decimal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://amin.benarieb.com/tags/decimal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dealing with Floating-Point Precision in Swift</title>
-      <link>http://localhost:1313/posts/floating-precision/</link>
+      <link>https://amin.benarieb.com/posts/floating-precision/</link>
       <pubDate>Sun, 05 Jan 2025 18:57:18 +0500</pubDate>
-      <guid>http://localhost:1313/posts/floating-precision/</guid>
+      <guid>https://amin.benarieb.com/posts/floating-precision/</guid>
       <description>&lt;p&gt;During my junior years at university, we had a course dedicated to data structures and algorithms. One of the first tasks was working with large numbers, particularly floating-point numbers. At the time, I completed the task successfully. However, I eventually forgot the key lesson about the pitfalls of floating-point numbers and their rounding errors.&lt;/p&gt;&#xA;&lt;p&gt;Take a look at the following Swift code:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; a = &lt;span style=&#34;color:#ae81ff&#34;&gt;12.31&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; b = &lt;span style=&#34;color:#ae81ff&#34;&gt;8.2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(a &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; b)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Output: 20.509999999999998&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Surprisingly, instead of 20.51, you’re more likely to get &lt;code&gt;20.509999999999998&lt;/code&gt;.&#xA;And if you print values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; you also get something strange:&lt;/p&gt;</description>
     </item>
   </channel>

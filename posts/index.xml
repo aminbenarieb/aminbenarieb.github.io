@@ -2,39 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Amin Benarieb&#39;s Blog</title>
-    <link>https://amin.benarieb.com/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
     <lastBuildDate>Sat, 30 Aug 2025 18:11:49 +0500</lastBuildDate>
-    <atom:link href="https://amin.benarieb.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Turning the iPhone into a Laboratory Microscope with AI and BLE</title>
-      <link>https://amin.benarieb.com/posts/iphone_as_laboratory_microscope/</link>
+      <link>http://localhost:1313/posts/iphone_as_laboratory_microscope/</link>
       <pubDate>Sat, 30 Aug 2025 18:11:49 +0500</pubDate>
-      <guid>https://amin.benarieb.com/posts/iphone_as_laboratory_microscope/</guid>
+      <guid>http://localhost:1313/posts/iphone_as_laboratory_microscope/</guid>
       <description>&lt;p&gt;I recently shared an exciting project where we transformed an iPhone into a fully functional laboratory microscope by combining hardware innovation with AI, if you&amp;rsquo;re working on similar hardware + AI/BLE projects or interested in the technical details, check out the complete write-up on HackerNoon:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://hackernoon.com/how-we-turned-the-iphone-into-a-laboratory-microscope-with-ai-and-ble&#34;&gt;How We Turned the iPhone into a Laboratory Microscope with AI and BLE&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>How to experiment with camera faster</title>
+      <link>http://localhost:1313/posts/how_to_experiment_with_camera_faster/</link>
+      <pubDate>Sat, 11 Jan 2025 14:39:26 +0500</pubDate>
+      <guid>http://localhost:1313/posts/how_to_experiment_with_camera_faster/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;tool.poetry]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;name = &amp;#34;camera_playground&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;version = &amp;#34;0.1.0&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;description = &amp;#34;Camera playground: experimenting with OpenCV and numerical calculations in Python.&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;authors = [&amp;#34;Amin Benarieb &amp;lt;amin.benarieb@gmail.com&amp;gt;&amp;#34;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;tool.poetry.dependencies]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;python = &amp;#34;^3.10&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;opencv-python = &amp;#34;^4.5.5&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;numpy = &amp;#34;^1.24.0&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;build-system]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;requires = [&amp;#34;poetry-core&amp;gt;=1.0.0&amp;#34;]&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;build-backend = &amp;#34;poetry.core.masonry.api&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; cv2&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; numpy &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; np&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://192.168.14.157/video.mjpg&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;VideoCapture(url)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    camera, frame &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cp&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; frame &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;:&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;imshow(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Frame&amp;#34;&lt;/span&gt;, frame)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    q &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;waitKey(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; q&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;ord(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;q&amp;#34;&lt;/span&gt;):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cv2&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;destroyAllWindows()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>How_to_dive_in__open_source</title>
+      <link>http://localhost:1313/posts/how_to_dive_in__open_source/</link>
+      <pubDate>Fri, 10 Jan 2025 11:29:48 +0500</pubDate>
+      <guid>http://localhost:1313/posts/how_to_dive_in__open_source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cs Playgrounds</title>
+      <link>http://localhost:1313/posts/cs-playgrounds/</link>
+      <pubDate>Mon, 06 Jan 2025 13:41:32 +0500</pubDate>
+      <guid>http://localhost:1313/posts/cs-playgrounds/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Dealing with Floating-Point Precision in Swift</title>
-      <link>https://amin.benarieb.com/posts/floating-precision/</link>
+      <link>http://localhost:1313/posts/floating-precision/</link>
       <pubDate>Sun, 05 Jan 2025 18:57:18 +0500</pubDate>
-      <guid>https://amin.benarieb.com/posts/floating-precision/</guid>
+      <guid>http://localhost:1313/posts/floating-precision/</guid>
       <description>&lt;p&gt;During my junior years at university, we had a course dedicated to data structures and algorithms. One of the first tasks was working with large numbers, particularly floating-point numbers. At the time, I completed the task successfully. However, I eventually forgot the key lesson about the pitfalls of floating-point numbers and their rounding errors.&lt;/p&gt;&#xA;&lt;p&gt;Take a look at the following Swift code:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-swift&#34; data-lang=&#34;swift&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; a = &lt;span style=&#34;color:#ae81ff&#34;&gt;12.31&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; b = &lt;span style=&#34;color:#ae81ff&#34;&gt;8.2&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;print(a &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; b)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Output: 20.509999999999998&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Surprisingly, instead of 20.51, you’re more likely to get &lt;code&gt;20.509999999999998&lt;/code&gt;.&#xA;And if you print values of &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; you also get something strange:&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Debug Faster With Processinfo</title>
-      <link>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</link>
+      <link>http://localhost:1313/posts/how-to-debug-faster-with-processinfo/</link>
       <pubDate>Wed, 30 Oct 2024 16:19:20 +0500</pubDate>
-      <guid>https://amin.benarieb.com/posts/how-to-debug-faster-with-processinfo/</guid>
+      <guid>http://localhost:1313/posts/how-to-debug-faster-with-processinfo/</guid>
       <description>&lt;h1 id=&#34;how-to-debug-faster-without-rebuilding-your-ios-app&#34;&gt;How to Debug Faster Without Rebuilding Your iOS App&lt;/h1&gt;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;p&gt;Building an iOS app can be time-consuming, especially for large projects with complex dependencies. Waiting for the app to rebuild every time you make a minor change or need to test with different data can significantly slow down your development process.&lt;/p&gt;&#xA;&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;&#xA;&lt;p&gt;To speed up debugging without rebuilding your app, you can leverage &lt;code&gt;ProcessInfo.processInfo.environment&lt;/code&gt; and &lt;code&gt;ProcessInfo.processInfo.arguments&lt;/code&gt;. These allow you to inject data and control app behavior at runtime, making it easier to test different scenarios quickly.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Apple Health Generator</title>
+      <link>http://localhost:1313/posts/apple-health-generator/</link>
+      <pubDate>Fri, 23 Aug 2024 21:39:02 +0500</pubDate>
+      <guid>http://localhost:1313/posts/apple-health-generator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>How to Boost Ios Development Productivity</title>
+      <link>http://localhost:1313/posts/how-to-boost-ios-development-productivity/</link>
+      <pubDate>Fri, 09 Aug 2024 20:10:07 +0500</pubDate>
+      <guid>http://localhost:1313/posts/how-to-boost-ios-development-productivity/</guid>
+      <description>&lt;p&gt;raycast&#xA;sherlock&#xA;rocketsim&#xA;xcode (Info, Cursor, …)&#xA;datafude&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Debug Camera on Ios Simulator</title>
+      <link>http://localhost:1313/posts/how-to-debug-camera-on-ios-simulator/</link>
+      <pubDate>Fri, 09 Aug 2024 20:02:57 +0500</pubDate>
+      <guid>http://localhost:1313/posts/how-to-debug-camera-on-ios-simulator/</guid>
+      <description>&lt;p&gt;How to debug and test video algorithms on iOS simulator without iOS device?&lt;/p&gt;&#xA;&lt;p&gt;The main idea here is to abstract your service for streaming video from a camera in protocol and use an implementation steaming a video from resources via AVFoundation.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a protocols like this:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&#xA;protocol CameraService: {&#xA;&#xA;&#x9;weak var delegate: CameraServiceDelegate { get }&#xA;&#xA;}&#xA;&#xA;protocol CameraServiceDelegate: AnyObject {&#xA;&#xA;    func didVideoOutput(sampleBuffer: CMSampleBuffer)&#xA;    &#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In real camera service, you would implement &lt;code&gt;AVCaptureVideoDataOutputSampleBufferDelegate&lt;/code&gt;:&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>How to debug iOS deeplinks with local server</title>
-      <link>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</link>
+      <link>http://localhost:1313/posts/how-to-debug-ios-deeplinks-with-local-server/</link>
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
-      <guid>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</guid>
+      <guid>http://localhost:1313/posts/how-to-debug-ios-deeplinks-with-local-server/</guid>
       <description>&lt;h1 id=&#34;how-to-debug-ios-deep-links-with-a-local-server&#34;&gt;How to Debug iOS Deep Links with a Local Server&lt;/h1&gt;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;p&gt;Testing interactions within your iOS app that require a custom web page—such as engaging with payment options in a pop-up browser via universal links or deep links—can be challenging. Capturing and modifying URLs, handling deep links that close pop-up browsers, and ensuring that various types of links work seamlessly within your app can be time-consuming without the right tools.&lt;/p&gt;</description>
     </item>
   </channel>

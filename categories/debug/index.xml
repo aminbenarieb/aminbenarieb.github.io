@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Debug on Amin Benarieb&#39;s Blog</title>
-    <link>https://amin.benarieb.com/categories/debug/</link>
+    <link>http://localhost:1313/categories/debug/</link>
     <description>Recent content in Debug on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
     <lastBuildDate>Thu, 29 Jun 2023 14:27:48 +0100</lastBuildDate>
-    <atom:link href="https://amin.benarieb.com/categories/debug/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/debug/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to debug iOS deeplinks with local server</title>
-      <link>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</link>
+      <link>http://localhost:1313/posts/how-to-debug-ios-deeplinks-with-local-server/</link>
       <pubDate>Thu, 29 Jun 2023 14:27:48 +0100</pubDate>
-      <guid>https://amin.benarieb.com/posts/how-to-debug-ios-deeplinks-with-local-server/</guid>
+      <guid>http://localhost:1313/posts/how-to-debug-ios-deeplinks-with-local-server/</guid>
       <description>&lt;h1 id=&#34;how-to-debug-ios-deep-links-with-a-local-server&#34;&gt;How to Debug iOS Deep Links with a Local Server&lt;/h1&gt;&#xA;&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;&#xA;&lt;p&gt;Testing interactions within your iOS app that require a custom web page—such as engaging with payment options in a pop-up browser via universal links or deep links—can be challenging. Capturing and modifying URLs, handling deep links that close pop-up browsers, and ensuring that various types of links work seamlessly within your app can be time-consuming without the right tools.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ble on Amin Benarieb&#39;s Blog</title>
-    <link>http://localhost:1313/tags/ble/</link>
+    <link>https://amin.benarieb.com/tags/ble/</link>
     <description>Recent content in Ble on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
     <lastBuildDate>Sat, 30 Aug 2025 18:11:49 +0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ble/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://amin.benarieb.com/tags/ble/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Turning the iPhone into a Laboratory Microscope with AI and BLE</title>
-      <link>http://localhost:1313/posts/iphone_as_laboratory_microscope/</link>
+      <link>https://amin.benarieb.com/posts/iphone-laboratory-microscope-ai-ble/</link>
       <pubDate>Sat, 30 Aug 2025 18:11:49 +0500</pubDate>
-      <guid>http://localhost:1313/posts/iphone_as_laboratory_microscope/</guid>
+      <guid>https://amin.benarieb.com/posts/iphone-laboratory-microscope-ai-ble/</guid>
       <description>&lt;p&gt;I recently shared an exciting project where we transformed an iPhone into a fully functional laboratory microscope by combining hardware innovation with AI, if you&amp;rsquo;re working on similar hardware + AI/BLE projects or interested in the technical details, check out the complete write-up on HackerNoon:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://hackernoon.com/how-we-turned-the-iphone-into-a-laboratory-microscope-with-ai-and-ble&#34;&gt;How We Turned the iPhone into a Laboratory Microscope with AI and BLE&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

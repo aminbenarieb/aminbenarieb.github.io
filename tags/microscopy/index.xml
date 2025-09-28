@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Technote on Amin Benarieb&#39;s Blog</title>
-    <link>https://amin.benarieb.com/categories/technote/</link>
-    <description>Recent content in Technote on Amin Benarieb&#39;s Blog</description>
+    <title>Microscopy on Amin Benarieb&#39;s Blog</title>
+    <link>https://amin.benarieb.com/tags/microscopy/</link>
+    <description>Recent content in Microscopy on Amin Benarieb&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
     <lastBuildDate>Sat, 30 Aug 2025 18:11:49 +0500</lastBuildDate>
-    <atom:link href="https://amin.benarieb.com/categories/technote/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://amin.benarieb.com/tags/microscopy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Turning the iPhone into a Laboratory Microscope with AI and BLE</title>
       <link>https://amin.benarieb.com/posts/iphone-laboratory-microscope-ai-ble/</link>

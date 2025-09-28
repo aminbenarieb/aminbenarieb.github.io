@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>&amp;copy; Copyright 2024, Amin Benarieb</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 18:57:18 +0500</lastBuildDate>
+    <lastBuildDate>Sat, 30 Aug 2025 18:11:49 +0500</lastBuildDate>
     <atom:link href="https://amin.benarieb.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Turning the iPhone into a Laboratory Microscope with AI and BLE</title>
+      <link>https://amin.benarieb.com/posts/iphone-laboratory-microscope-ai-ble/</link>
+      <pubDate>Sat, 30 Aug 2025 18:11:49 +0500</pubDate>
+      <guid>https://amin.benarieb.com/posts/iphone-laboratory-microscope-ai-ble/</guid>
+      <description>&lt;p&gt;I recently shared an exciting project where we transformed an iPhone into a fully functional laboratory microscope by combining hardware innovation with AI, if you&amp;rsquo;re working on similar hardware + AI/BLE projects or interested in the technical details, check out the complete write-up on HackerNoon:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://hackernoon.com/how-we-turned-the-iphone-into-a-laboratory-microscope-with-ai-and-ble&#34;&gt;How We Turned the iPhone into a Laboratory Microscope with AI and BLE&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Dealing with Floating-Point Precision in Swift</title>
       <link>https://amin.benarieb.com/posts/floating-precision/</link>
